@@ -1,0 +1,36 @@
+chatbot-platform\backend\venv
+chatbot-platform\backend\alembic\__pycache__
+chatbot-platform\backend\app\__pycache__
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Virtual environments
+venv/
+.venv/
+backend/venv/
+
+# Environment files
+.env
+.env.*
+
+# Test and build caches
+.pytest_cache/
+.tox/
+.coverage
+.cache/
+.mypy_cache/
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs and distributions
+*.log
+build/
+dist/
+*.egg-info/

@@ -65,3 +65,28 @@ API docs: http://localhost:8000/docs
 - [ ] Register a user via `/api/auth/register` → creates org + owner user
 - [ ] Login via `/api/auth/login` → returns tokens
 - [ ] Create a bot via `/api/bots` with Bearer token → persists to DB
+
+## Deploy to Render
+
+- **Files:** See [Dockerfile](Dockerfile) and [render.yaml](render.yaml) in the repo root.
+- **Build:** Render will use the `Dockerfile` to build the image; the Dockerfile installs `backend/requirements.txt` and copies the `backend` folder into the container.
+- **Port:** Render provides a `PORT` env var; the container binds to `0.0.0.0:$PORT` using `gunicorn` + `uvicorn` workers.
+- **Quick steps:**
+
+```bash
+# Create a Git repo, push to GitHub (or connect your repo to Render)
+git init
+git add .
+git commit -m "Add Dockerfile + Render config"
+git push origin main
+
+# On Render: create a new Web Service, connect your repo, select Docker, and deploy.
+```
+
+If you prefer not to use Docker, set the Start Command on Render to:
+
+```
+gunicorn -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$PORT app.main:app
+```
+
+Make sure `backend/.env` (or Render env vars) contains your DB and JWT secrets.

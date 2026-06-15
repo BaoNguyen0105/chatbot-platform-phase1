@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: chatbot-platform-backend
+    env: docker
+    plan: free
+    dockerfilePath: Dockerfile
+    buildCommand: null
+    startCommand: null
+    env:
+      - key: PORT
+        value: "8000"
