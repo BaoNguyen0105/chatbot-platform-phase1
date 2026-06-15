@@ -38,9 +38,6 @@ class Conversation(Base, UUIDMixin, TimestampMixin):
 
     messages: Mapped[list["Message"]] = relationship(
         back_populates="conversation", order_by="Message.created_at"
-        back_populates="conversation", 
-        order_by="Message.created_at",
-        cascade="all, delete-orphan"
     )
 
 

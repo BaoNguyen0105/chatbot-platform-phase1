@@ -33,16 +33,3 @@ def create_refresh_token(subject: str) -> str:
 
 def decode_token(token: str) -> dict[str, Any]:
     return jwt.decode(token, settings.JWT_SECRET_KEY, algorithms=[settings.JWT_ALGORITHM])
-
-def verify_org_access(user_org_id: Any, target_org_id: Any) -> bool:
-    """
-    Ensures a user cannot access data from another organization.
-    Comparison is done on strings to handle UUID/String variations.
-    """
-    return str(user_org_id) == str(target_org_id)
-
-def verify_org_access(user_org_id: str, target_org_id: str) -> bool:
-    """
-    Ensures a user cannot access data from another organization.
-    """
-    return str(user_org_id) == str(target_org_id)
