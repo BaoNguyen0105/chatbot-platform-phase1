@@ -1,6 +1,3 @@
-chatbot-platform\backend\venv
-chatbot-platform\backend\alembic\__pycache__
-chatbot-platform\backend\app\__pycache__
 
 # Python cache files
 __pycache__/
